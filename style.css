@@ -7,9 +7,23 @@
     --footer-bg: #ffffff;
     --matrix-opacity: 0;
     
+    /* ИНЖЕНЕРНАЯ СЕТКА ДЛЯ ДНЕВНОГО РЕЖИМА */
     --day-bg-pattern: linear-gradient(rgba(0, 112, 243, 0.04) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(0, 112, 243, 0.04) 1px, transparent 1px);
     --day-bg-size: 24px 24px;
+}
+
+[data-theme="dark"] {
+    --bg-color: #0d1117;
+    --text-color: #ffffff;
+    --btn-bg: #161b22;
+    --btn-text: #ffffff;
+    --accent-color: #00a3ff;
+    --footer-bg: #161b22;
+    --matrix-opacity: 0.45;
+    
+    --day-bg-pattern: none;
+    --day-bg-size: auto;
 }
 
 html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
@@ -23,7 +37,9 @@ body {
     overflow-x: hidden; perspective: 1500px;
 }
 
+/* ЧЕТКАЯ МАТРИЦА НА ФОНЕ */
 #matrix-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: var(--matrix-opacity); pointer-events: none; transition: opacity 0.5s; }
+
 .container { max-width: 850px; margin: 0 auto; padding: 20px; }
 .header-content { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; }
 
@@ -31,6 +47,7 @@ body {
 .about-text h2 { font-size: 36px; margin-bottom: 15px; }
 .about-text p { font-size: 22px; opacity: 0.95; line-height: 1.6; }
 
+/* ДНЕВНАЯ КНОПКА СКИП */
 .single-button-container { display: flex; justify-content: center; margin-top: 80px; }
 .skip-btn {
     width: 100%; max-width: 500px; height: 100px; background: var(--accent-color); color: white;
@@ -38,10 +55,32 @@ body {
     box-shadow: 0 10px 25px rgba(0, 112, 243, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .skip-btn:hover { transform: scale(1.03) translateY(-4px); box-shadow: 0 15px 30px rgba(0, 112, 243, 0.4); }
+
 .hidden-zone { display: none !important; }
+
+/* ТРИ ОТДЕЛЬНЫЕ КНОПКИ В СТРОКУ */
+.joke-buttons-row { display: flex; flex-direction: row; gap: 15px; margin-top: 80px; }
+.big-btn {
+    flex: 1; height: 140px; background: var(--btn-bg); color: var(--btn-text); 
+    border: 2px solid transparent; border-radius: 18px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 12px; cursor: pointer;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15); transition: all 0.2s;
+}
+.big-btn:hover { background: var(--accent-color); color: white; transform: translateY(-6px); box-shadow: 0 14px 28px rgba(0,0,0,0.25); }
+
+/* КРУПНЫЕ ЭМОДЗИ И КУРСОРЫ */
+.btn-emoji { font-size: 48px; line-height: 1; }
+.dota-icon-img { width: 54px; height: 54px; object-fit: contain; }
+.btn-title { font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+.back-btn { border-color: #27ae60 !important; transition: all 0.3s ease !important; }
+.back-btn:hover { background: #27ae60 !important; color: white !important; }
+#btn-turbo { border-color: #e74c3c; }
 
 .corner-footer { position: fixed; right: 25px; bottom: 25px; z-index: 100; background: var(--footer-bg); padding: 10px 20px; border-radius: 30px; border: 1px solid var(--accent-color); }
 .corner-footer a { color: var(--text-color); text-decoration: none; font-weight: bold; margin: 0 10px; cursor: pointer; }
 
+/* Заглушки для будущих анимаций */
 .hidden-modal, .hidden { display: none !important; }
 #bara-char { position: fixed; transform: translate(-350px, 45vh); }
+.turbo-item { transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }

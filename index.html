@@ -8,10 +8,15 @@
 </head>
 <body data-theme="light">
 
+    <!-- Холст для матрицы -->
     <canvas id="matrix-canvas"></canvas>
+
     <div id="math-rain-container"></div>
+
+    <!-- Модель Доты для анимации хаоса (пока скрыта) -->
     <img src="dota-logo.png" id="bara-char" alt="Dota 2 Chaos">
 
+    <!-- Экран критических ошибок проги -->
     <div id="hacker-modal" class="hidden-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,6 +27,7 @@
         </div>
     </div>
 
+    <!-- Экран Kernel Panic (BSOD) -->
     <div id="crash-screen" class="hidden">
         <div class="crash-content">
             <h2>[ KERNEL PANIC: Segmentation fault ]</h2>
@@ -39,6 +45,7 @@
     </header>
 
     <main class="container">
+        <!-- Текст обо мне -->
         <div class="about-text turbo-item">
             <h2>Привет, я Даниил 👋</h2>
             <p>Пытаюсь учась на Системного программиста in ДВФУ.</p>
@@ -53,6 +60,23 @@
 
         <!-- НОЧНАЯ ЗОНА -->
         <div id="night-zone" class="joke-buttons-row hidden-zone">
+            <button id="btn-dvfu" class="big-btn turbo-item">
+                <span class="btn-emoji">🎓</span>
+                <span class="btn-title">Пот</span>
+            </button>
+            <button id="btn-sys" class="big-btn turbo-item">
+                <span class="btn-emoji">💻</span>
+                <span class="btn-title">Прога</span>
+            </button>
+            <button id="btn-turbo" class="big-btn">
+                <img src="dota-logo.png" class="dota-icon-img" alt="Dota 2">
+                <span class="btn-title">Расклик</span>
+            </button>
+            
+            <button id="btn-back" class="big-btn back-btn">
+                <span class="btn-emoji">☀️</span>
+                <span class="btn-title">На главную</span>
+            </button>
         </div>
     </main>
 
