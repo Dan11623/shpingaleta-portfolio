@@ -61,3 +61,39 @@ btnDvfu.addEventListener('click', (e) => {
         }, i * 60);
     }
 });
+
+// --- ДОБАВЛЕНО: КНОПКА ПРОГА (СПИСОК МЕМНЫХ ОШИБОК + КРАШ) ---
+const btnSys = document.getElementById('btn-sys');
+const hackerModal = document.getElementById('hacker-modal');
+const logText = document.getElementById('log-text');
+
+const progErrors = [
+    "[FATAL ERROR] CMakeLists.txt молча обиделся и отвалился.",
+    "[FATAL ERROR] Твой код настолько плох, что компилятор закрыл VS Code.",
+    "[GIT WARN] Обнаружен конфликт слияния. Ты умудрился поссориться сам с собой в Git.",
+    "[ERR] Твой SSH-ключ улетел обратно во Владивосток.",
+    "[STATUS] Ошибка сегментации! Память вышла из чата.",
+    "[DANYCH.SYS] Всё сломалось. Инициируем синий экран для солидности..."
+];
+
+btnSys.addEventListener('click', (e) => {
+    e.stopPropagation();
+    hackerModal.classList.remove('hidden-modal');
+    logText.innerText = "";
+    
+    progErrors.forEach((line, index) => {
+        setTimeout(() => {
+            logText.innerText += line + "\n";
+            logText.scrollTop = logText.scrollHeight;
+        }, index * 700); // Строки печатаются с задержкой, чтобы успеть прочитать
+    });
+
+    setTimeout(() => {
+        hackerModal.classList.add('hidden-modal');
+        const crash = document.getElementById('crash-screen');
+        crash.classList.remove('hidden');
+        setTimeout(() => crash.classList.add('hidden'), 3000);
+    }, 4500); // Падение в BSOD после вывода всех строк логов
+});
+
+document.getElementById('close-modal').addEventListener('click', () => { hackerModal.classList.add('hidden-modal'); });
