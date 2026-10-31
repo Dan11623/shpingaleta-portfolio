@@ -41,3 +41,23 @@ function switchTheme(toNight) {
 
 document.getElementById('btn-skip').addEventListener('click', () => switchTheme(true));
 document.getElementById('btn-back').addEventListener('click', () => switchTheme(false));
+
+// --- ЛОГИКА ДЛЯ КНОПКИ «ПОТ» (МАТАН ДВФУ) ---
+const btnDvfu = document.getElementById('btn-dvfu');
+const rainContainer = document.getElementById('math-rain-container');
+const mathJokes = ['∫(x²)dx', 'lim(x→∞)', '√(-1)=i', 'МатАн', 'ДВФУ', 'ПЕРЕСДАЧА', 'ДЕДЛАЙН'];
+
+btnDvfu.addEventListener('click', (e) => {
+    e.stopPropagation();
+    for (let i = 0; i < 40; i++) {
+        setTimeout(() => {
+            const item = document.createElement('div');
+            item.classList.add('math-item');
+            item.innerText = mathJokes[Math.floor(Math.random() * mathJokes.length)];
+            item.style.left = Math.random() * 95 + 'vw';
+            item.style.animationDuration = (Math.random() * 2 + 1.5) + 's';
+            rainContainer.appendChild(item);
+            setTimeout(() => item.remove(), 3500);
+        }, i * 60);
+    }
+});
