@@ -36,6 +36,7 @@ function switchTheme(toNight) {
         document.body.setAttribute('data-theme', 'light');
         dayZone.classList.remove('hidden-zone');
         nightZone.classList.add('hidden-zone');
+        document.body.classList.remove('turbo-activated');
     }
 }
 
@@ -62,7 +63,7 @@ btnDvfu.addEventListener('click', (e) => {
     }
 });
 
-// --- ДОБАВЛЕНО: КНОПКА ПРОГА (СПИСОК МЕМНЫХ ОШИБОК + КРАШ) ---
+// --- КНОПКА ПРОГА (СПИСОК МЕМНЫХ ОШИБОК + КРАШ) ---
 const btnSys = document.getElementById('btn-sys');
 const hackerModal = document.getElementById('hacker-modal');
 const logText = document.getElementById('log-text');
@@ -85,7 +86,7 @@ btnSys.addEventListener('click', (e) => {
         setTimeout(() => {
             logText.innerText += line + "\n";
             logText.scrollTop = logText.scrollHeight;
-        }, index * 700); // Строки печатаются с задержкой, чтобы успеть прочитать
+        }, index * 700);
     });
 
     setTimeout(() => {
@@ -93,7 +94,22 @@ btnSys.addEventListener('click', (e) => {
         const crash = document.getElementById('crash-screen');
         crash.classList.remove('hidden');
         setTimeout(() => crash.classList.add('hidden'), 3000);
-    }, 4500); // Падение в BSOD после вывода всех строк логов
+    }, 4500);
+});
+
+// --- КНОПКА РАСКЛИК ЗАПУСКАЕТ ПОЛЕТ КАРТИНКИ ДОТЫ И ХАОС ---
+const btnTurbo = document.getElementById('btn-turbo');
+const dotaPng = document.getElementById('bara-char');
+
+btnTurbo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (document.body.classList.contains('turbo-activated')) {
+        document.body.classList.remove('turbo-activated');
+        return;
+    }
+    dotaPng.classList.add('run-bara-animation');
+    setTimeout(() => { document.body.classList.add('turbo-activated'); }, 450);
+    setTimeout(() => { dotaPng.classList.remove('run-bara-animation'); }, 900);
 });
 
 document.getElementById('close-modal').addEventListener('click', () => { hackerModal.classList.add('hidden-modal'); });
