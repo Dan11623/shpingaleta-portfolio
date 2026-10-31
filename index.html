@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визитка Данича | ДВФУ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="light">
+
+    <canvas id="matrix-canvas"></canvas>
+    <div id="math-rain-container"></div>
+    <img src="dota-logo.png" id="bara-char" alt="Dota 2 Chaos">
+
+    <div id="hacker-modal" class="hidden-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Danychy_Compiler_Error.log</span>
+                <button id="close-modal">×</button>
+            </div>
+            <pre id="log-text"></pre>
+        </div>
+    </div>
+
+    <div id="crash-screen" class="hidden">
+        <div class="crash-content">
+            <h2>[ KERNEL PANIC: Segmentation fault ]</h2>
+            <p>cc1: internal compiler error: Killed (program cc1plus)</p>
+            <p>CMakeLists.txt:14 (add_executable): Target "danych_os" has отвалился.</p>
+            <p>Git: Fatal error. Merge conflict in main branch. Слияние невозможно.</p>
+            <p class="blink">Rebooting system in 3 seconds...</p>
+        </div>
+    </div>
+
+    <header class="turbo-item">
+        <div class="container header-content">
+            <div></div> 
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="about-text turbo-item">
+            <h2>Привет, я Даниил 👋</h2>
+            <p>Пытаюсь учась на Системного программиста in ДВФУ.</p>
+        </div>
+
+        <!-- ДНЕВНАЯ КНОПКА -->
+        <div id="day-zone" class="single-button-container">
+            <button id="btn-skip" class="skip-btn">
+                🎓 МОЯ УЧЁБА
+            </button>
+        </div>
+
+        <!-- НОЧНАЯ ЗОНА -->
+        <div id="night-zone" class="joke-buttons-row hidden-zone">
+        </div>
+    </main>
+
+    <footer class="corner-footer turbo-item">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="mailto:your-email@example.com">Email</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

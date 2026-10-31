@@ -1,0 +1,47 @@
+:root {
+    --bg-color: #f4f7f9;
+    --text-color: #2c3e50;
+    --btn-bg: #ffffff;
+    --btn-text: #2c3e50;
+    --accent-color: #0070f3;
+    --footer-bg: #ffffff;
+    --matrix-opacity: 0;
+    
+    --day-bg-pattern: linear-gradient(rgba(0, 112, 243, 0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0, 112, 243, 0.04) 1px, transparent 1px);
+    --day-bg-size: 24px 24px;
+}
+
+html, body { margin: 0; padding: 0; width: 100%; height: 100%; }
+body {
+    background-color: var(--bg-color); 
+    background-image: var(--day-bg-pattern);
+    background-size: var(--day-bg-size);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.4s, color 0.4s; 
+    overflow-x: hidden; perspective: 1500px;
+}
+
+#matrix-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: var(--matrix-opacity); pointer-events: none; transition: opacity 0.5s; }
+.container { max-width: 850px; margin: 0 auto; padding: 20px; }
+.header-content { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; }
+
+.about-text { text-align: center; margin-top: 120px; margin-bottom: 40px; }
+.about-text h2 { font-size: 36px; margin-bottom: 15px; }
+.about-text p { font-size: 22px; opacity: 0.95; line-height: 1.6; }
+
+.single-button-container { display: flex; justify-content: center; margin-top: 80px; }
+.skip-btn {
+    width: 100%; max-width: 500px; height: 100px; background: var(--accent-color); color: white;
+    border: none; border-radius: 20px; font-size: 18px; font-weight: bold; cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 112, 243, 0.3); transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.skip-btn:hover { transform: scale(1.03) translateY(-4px); box-shadow: 0 15px 30px rgba(0, 112, 243, 0.4); }
+.hidden-zone { display: none !important; }
+
+.corner-footer { position: fixed; right: 25px; bottom: 25px; z-index: 100; background: var(--footer-bg); padding: 10px 20px; border-radius: 30px; border: 1px solid var(--accent-color); }
+.corner-footer a { color: var(--text-color); text-decoration: none; font-weight: bold; margin: 0 10px; cursor: pointer; }
+
+.hidden-modal, .hidden { display: none !important; }
+#bara-char { position: fixed; transform: translate(-350px, 45vh); }
